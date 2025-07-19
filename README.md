@@ -59,10 +59,10 @@ Used to package and send the state of both buttons and the current `millis()` va
 ##  Demo & Visuals
 
 ###  Sender in Enclosure (With Buttons)
-![Sender](assets/sender_case.png)
+![Sender](assets/sender_case.jpg)
 
 ###  Receiver Relay Board
-![Receiver](assets/receiver_relay.png)
+![Receiver](assets/receiver_relay.jpg)
 
 ###  ESP-NOW Wireless Communication
 ![Communication](assets/espnow_flow.png)
