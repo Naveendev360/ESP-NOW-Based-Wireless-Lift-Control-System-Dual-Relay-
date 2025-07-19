@@ -85,7 +85,7 @@ Used to package and send the state of both buttons and the current `millis()` va
 
 **Naveen Kumar S.**  
 📍 Coimbatore, India  
-🔗 GitHub: [Naveendev360]([https://github.com/Navz360](https://github.com/Naveendev360))  
+🔗 GitHub: [Naveendev360](https://github.com/Naveendev360))  
 🔗 LinkedIn: [Naveen-kumar](https://www.linkedin.com/in/naveen-kumar-31a168251/)
 
 ---
@@ -98,7 +98,10 @@ This project is intended for **educational and prototyping purposes**. Exercise 
 
 ##  Status
 
-🟢 Fully Working | 🔁 Long Range | ⏱️ Ultra Low Latency | 🔐 Safe
+🟢 Fully Working 
+🔁 Long Range 
+⏱️ Ultra Low Latency 
+🔐 Safe
 
 ---
 
