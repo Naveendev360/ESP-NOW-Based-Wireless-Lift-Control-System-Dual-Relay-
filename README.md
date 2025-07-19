@@ -1,8 +1,8 @@
-# 🚀 ESP32 Wireless Lift Control System (ESP-NOW Based)
+#  ESP32 Wireless Lift Control System (ESP-NOW Based)
 
 This project demonstrates a **low-latency**, **safe**, and **Wi-Fi-independent** lift control system using two ESP32 boards via **ESP-NOW communication protocol**.
 
-## 🛠️ Project Overview
+##  Project Overview
 
 - **Sender Unit**: Push-button interface to control lift direction.
 - **Receiver Unit**: Relay interface to control actual lift motors.
@@ -14,19 +14,19 @@ This project demonstrates a **low-latency**, **safe**, and **Wi-Fi-independent**
 
 ---
 
-## 📦 Hardware Used
+##  Hardware Used
 
 | Module          | Sender             | Receiver           |
 |-----------------|--------------------|--------------------|
-| ESP32 Dev Board | ✅                 | ✅                 |
-| Push Buttons    | 2 (GPIO14, 27)     | ❌                 |
-| Relays          | ❌                 | 2-channel (GPIO18, 19) |
+| ESP32 Dev Board | YES                 | YES                 |
+| Push Buttons    | 2 (GPIO14, 27)     | NO                |
+| Relays          | NO                 | 2-channel (GPIO18, 19) |
 | Power Supply    | 5V USB or Adapter  | 5V Relay-powered   |
 | Enclosure       | Custom 3D printed case (Sender + Receiver)
 
 ---
 
-## 📡 How It Works
+##  How It Works
 
 - **Sender** reads buttons every 100ms and sends their states + a timestamp (`millis()`).
 - **Receiver** listens to sender data and mirrors button presses to relays.
@@ -34,25 +34,7 @@ This project demonstrates a **low-latency**, **safe**, and **Wi-Fi-independent**
 
 ---
 
-## 🧠 Process Flow Diagram
-
-```mermaid
-flowchart TD
-  A[Button Press on Sender] --> B[ESP32 Reads Button State]
-  B --> C[Create struct with btn1, btn2, millis()]
-  C --> D[Send data via ESP-NOW]
-  D --> E[Receiver ESP32 Receives Packet]
-  E --> F[Check millis() for heartbeat]
-  F --> G[Control Relay1 or Relay2]
-  G --> H[Safety Logic: One Relay ON at a Time]
-  F --> I{If No Data in 300ms?}
-  I -->|Yes| J[Turn OFF All Relays]
-  I -->|No| G
-```
-
----
-
-## 🧱 Struct Used
+##  Struct Used
 
 ```cpp
 typedef struct struct_message {
@@ -66,7 +48,7 @@ Used to package and send the state of both buttons and the current `millis()` va
 
 ---
 
-## ⏱️ Heartbeat Explanation
+##  Heartbeat Explanation
 
 - **Purpose**: Detect communication loss.
 - **Logic**: If the time since the last received message exceeds `300ms`, the receiver turns OFF all relays.
@@ -74,23 +56,23 @@ Used to package and send the state of both buttons and the current `millis()` va
 
 ---
 
-## 📷 Demo & Visuals
+##  Demo & Visuals
 
-### 🔘 Sender in Enclosure (With Buttons)
+###  Sender in Enclosure (With Buttons)
 ![Sender](assets/sender_case.png)
 
-### ⚡ Receiver Relay Board
+###  Receiver Relay Board
 ![Receiver](assets/receiver_relay.png)
 
-### 📶 ESP-NOW Wireless Communication
+###  ESP-NOW Wireless Communication
 ![Communication](assets/espnow_flow.png)
 
-### 📊 Functional Flowchart
+###  Functional Flowchart
 ![Flowchart](assets/flowchart.png)
 
 ---
 
-## 🔐 Safety Features Summary
+##  Safety Features Summary
 
 - One relay ON at a time (Button 1 locks out Button 2).
 - Real-time heartbeat check ensures safe operation.
@@ -99,31 +81,12 @@ Used to package and send the state of both buttons and the current `millis()` va
 
 ---
 
-## 📂 File Structure
-
-```
-/ESP32-Lift-Control/
-│
-├── sender/
-│   └── sender.ino
-├── receiver/
-│   └── receiver.ino
-├── assets/
-│   ├── sender_case.png
-│   ├── receiver_relay.png
-│   ├── espnow_flow.png
-│   └── flowchart.png
-└── README.md
-```
-
----
-
 ## 🧑‍💻 Developed By
 
 **Naveen Kumar S.**  
 📍 Coimbatore, India  
-🔗 GitHub: [Navz360](https://github.com/Navz360)  
-🔗 LinkedIn: [naveen-kumar](https://linkedin.com/in/naveen-kumar)
+🔗 GitHub: [Naveendev360]([https://github.com/Navz360](https://github.com/Naveendev360))  
+🔗 LinkedIn: [Naveen-kumar](https://www.linkedin.com/in/naveen-kumar-31a168251/)
 
 ---
 
@@ -133,6 +96,36 @@ This project is intended for **educational and prototyping purposes**. Exercise 
 
 ---
 
-## ✅ Status
+##  Status
 
 🟢 Fully Working | 🔁 Long Range | ⏱️ Ultra Low Latency | 🔐 Safe
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+```
+MIT License
+
+Copyright (c) 2025 Naveen Kumar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
